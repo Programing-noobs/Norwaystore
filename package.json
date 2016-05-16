@@ -1,0 +1,8 @@
+{
+    "name": "StoreFinderNorway",
+    "version": "1.0.0",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "phong_ba",
+    "contributors": [],
+    "dependencies": {}
+}

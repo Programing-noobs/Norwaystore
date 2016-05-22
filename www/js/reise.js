@@ -1,4 +1,4 @@
-function initMap() 
+function reise() 
             {
                 var origin_place_id = null;
                 var destination_place_id = null;
@@ -18,18 +18,18 @@ function initMap()
                     directionsDisplay.setMap(map);
 
                 var reise_til = document.getElementById('reise_til');
-                var destination_input = document.getElementById('reise_fra');
-                //var modes = document.getElementById('transport');
-
+                var reise_fra = document.getElementById('reise_fra');
+                
                 var origin_autocomplete = new google.maps.places.Autocomplete(reise_til);
                 origin_autocomplete.bindTo('bounds', map);
+                
                 var destination_autocomplete =
-                        new google.maps.places.Autocomplete(destination_input);
+                        new google.maps.places.Autocomplete(reise_fra);
                 
                 destination_autocomplete.bindTo('bounds', map);
 
-                // Sets a listener on a radio button to change the filter type on Places
-                // Autocomplete.
+                //*************sette inn radio button**********////
+                
                 function setupClickListener(id, mode) 
                 {
                     var radioButton = document.getElementById(id);
@@ -43,7 +43,7 @@ function initMap()
                 setupClickListener('buss', google.maps.TravelMode.TRANSIT);
                 setupClickListener('bil', google.maps.TravelMode.DRIVING);
 
-                function expandViewportToFitPlace(map, place) 
+                function autoFitViewport(map, place) 
                 {
                     if (place.geometry.viewport) 
                     {
@@ -61,10 +61,10 @@ function initMap()
                     var place = origin_autocomplete.getPlace();
                     if (!place.geometry) 
                     {
-                        window.alert("Autocomplete's returned place contains no geometry");
+                        window.alert("Finner ikke location data");
                         return;
                     }
-                    expandViewportToFitPlace(map, place);
+                    autoFitViewport(map, place);
 
                     origin_place_id = place.place_id;
                     route(origin_place_id, destination_place_id, travel_mode,
@@ -78,7 +78,7 @@ function initMap()
                         window.alert("Finner ikke noe ved denne adressen");
                         return;
                     }
-                    expandViewportToFitPlace(map, place);
+                    autoFitViewport(map, place);
 
                     // If the place has a geometry, store its place ID and route if we have
                     // the other place ID
@@ -89,7 +89,8 @@ function initMap()
 
                 function route(origin_place_id, destination_place_id, travel_mode,
                         directionsService, directionsDisplay) {
-                    if (!origin_place_id || !destination_place_id) {
+                    if (!origin_place_id || !destination_place_id) 
+                    {
                         return;
                     }
                     directionsService.route(

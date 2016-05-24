@@ -33,34 +33,35 @@ function posisjon()
              //feil håntering. hvis map ikke kan oppdateres seg.
             function() 
             {
-                     handleLocationError(true, infoWindow, map.getCenter());
+                     feilhandtering(true, infoWindow, map.getCenter());
             });
             
         } 
-        else 
+        
+    else 
             {
                 // feilmeding for håndtering av browser
-                handleLocationError(false, infoWindow, map.getCenter());
+                feilhandtering(false, infoWindow, map.getCenter());
             }
           
        
         // lage en input søk box
         
         var input = document.getElementById('sok_input');
-        var searchBox = new google.maps.places.SearchBox(input);
+        var sokfelt = new google.maps.places.SearchBox(input);
         
         // lage en listner til søke box skal koble til google api
         map.addListener('bounds_changed', function() 
         {
-          searchBox.setBounds(map.getBounds());
+          sokfelt.setBounds(map.getBounds());
         });
 
         var markers = [];
         
         
-        searchBox.addListener('places_changed', function() 
+        sokfelt.addListener('places_changed', function() 
         {
-          var places = searchBox.getPlaces();
+          var places = sokfelt.getPlaces();
 
           if (places.length == 0) 
           {
@@ -117,7 +118,7 @@ function posisjon()
         }
         
         //feilmelding for håndtere når browser ikke funker.
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) 
+      function feilhandtering(browserHasGeolocation, infoWindow, pos) 
       {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?

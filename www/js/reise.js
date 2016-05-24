@@ -1,8 +1,7 @@
 function reise() 
             {
-                var origin_place_id = null;
-                var destination_place_id = null;
-                
+                var reise_til_id = null;
+                var reise_fra_id = null;
                 var travel_mode = google.maps.TravelMode.WALKING;
                 
                 var map = new google.maps.Map(document.getElementById('map'), 
@@ -20,13 +19,13 @@ function reise()
                 var reise_til = document.getElementById('reise_til');
                 var reise_fra = document.getElementById('reise_fra');
                 
-                var origin_autocomplete = new google.maps.places.Autocomplete(reise_til);
-                origin_autocomplete.bindTo('bounds', map);
+                var til_autocomplete = new google.maps.places.Autocomplete(reise_til);
+                til_autocomplete.bindTo('bounds', map);
                 
-                var destination_autocomplete =
+                var fra_autocomplete =
                         new google.maps.places.Autocomplete(reise_fra);
                 
-                destination_autocomplete.bindTo('bounds', map);
+                fra_autocomplete.bindTo('bounds', map);
 
                 //*************sette inn radio button**********////
                 
@@ -56,9 +55,9 @@ function reise()
                     }
                 }
 
-                origin_autocomplete.addListener('place_changed', function () 
+                til_autocomplete.addListener('place_changed', function () 
                 {
-                    var place = origin_autocomplete.getPlace();
+                    var place = til_autocomplete.getPlace();
                     if (!place.geometry) 
                     {
                         window.alert("Finner ikke location data");
@@ -66,37 +65,35 @@ function reise()
                     }
                     autoFitViewport(map, place);
 
-                    origin_place_id = place.place_id;
-                    route(origin_place_id, destination_place_id, travel_mode,
+                    reise_til_id = place.place_id;
+                    route(reise_til_id, reise_fra_id, travel_mode,
                             directionsService, directionsDisplay);
                 });
 
-                destination_autocomplete.addListener('place_changed', function () 
+                fra_autocomplete.addListener('place_changed', function () 
                 {
-                    var place = destination_autocomplete.getPlace();
+                    var place = fra_autocomplete.getPlace();
                     if (!place.geometry) {
                         window.alert("Finner ikke noe ved denne adressen");
                         return;
                     }
                     autoFitViewport(map, place);
 
-                    // If the place has a geometry, store its place ID and route if we have
-                    // the other place ID
-                    destination_place_id = place.place_id;
-                    route(origin_place_id, destination_place_id, travel_mode,
+                   reise_fra_id = place.place_id;
+                    route(reise_til_id, reise_fra_id, travel_mode,
                             directionsService, directionsDisplay);
                 });
 
-                function route(origin_place_id, destination_place_id, travel_mode,
+                function route(reise_til_id, reise_fra_id, travel_mode,
                         directionsService, directionsDisplay) {
-                    if (!origin_place_id || !destination_place_id) 
+                    if (!reise_til_id || !reise_fra_id) 
                     {
                         return;
                     }
                     directionsService.route(
                        {
-                        origin: {'placeId': origin_place_id},
-                        destination: {'placeId': destination_place_id},
+                        origin: {'placeId': reise_til_id},
+                        destination: {'placeId': reise_fra_id},
                         travelMode: travel_mode
                        }
                         , 

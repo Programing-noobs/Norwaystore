@@ -55,6 +55,7 @@ function reise()
                     }
                 }
 
+                  
                 til_autocomplete.addListener('place_changed', function () 
                 {
                     var place = til_autocomplete.getPlace();
@@ -84,6 +85,7 @@ function reise()
                             directionsService, directionsDisplay);
                 });
 
+                //koble seg til google maps service og finne den riktig reise ruter.
                 function route(reise_til_id, reise_fra_id, travel_mode,
                         directionsService, directionsDisplay) {
                     if (!reise_til_id || !reise_fra_id) 
@@ -98,6 +100,7 @@ function reise()
                        }
                         , 
                     
+                //Gir en melding tilbake om det er noe feil, og hva slags feil det er.
                 function (response, status) 
                 {
                         if (status === google.maps.DirectionsStatus.OK) 

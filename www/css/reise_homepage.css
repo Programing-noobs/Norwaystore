@@ -1,0 +1,193 @@
+html, body 
+{
+    height: 100%;
+    background: url(images/bg.png);
+}
+#map 
+{
+    position: absolute;  
+        right: 5px;
+        top : 15px;
+        height: 87% ;
+        width: 76% ;
+
+}
+
+#reise_container 
+{
+    position: absolute;
+    background: white;             
+    top: 10px;
+
+}       
+
+
+#reise_fra
+{
+
+    font-family: Roboto;
+    font-size: 23px;
+    margin: 40px 0px 0px 0px;
+    text-overflow: ellipsis;
+    position: absolute;
+    top: 5px;
+    border: 5px solid gray;
+    width: 335px;
+    top: 9px;
+}
+
+#reise_til
+{
+    position: absolute;
+    font-family: Roboto;
+    font-size: 23px;
+    margin: 0px 10px 5px 0px;
+    text-overflow: ellipsis;
+    width: 335px;
+    border: 5px solid gray;
+    top: 7px;
+}
+
+#reise_fra:focus,#reise_til:focus 
+{
+    border-color: blue;
+}
+
+.pac-container 
+{
+    font-family: Roboto;
+}
+
+.pac-item
+{
+    font-size: 15px;
+    font-family: sans-serif;
+}
+.pac-icon
+{
+
+}
+.pac-item:hover
+{
+    background-color: gray;
+}
+
+.pac-item-selected
+{
+    background-color: blue;
+}
+.pac-item-query
+{
+    font-size: 15px;
+    font-family: cursive;
+
+}
+
+.pac-matched
+{
+    font-family: bold;
+}
+
+
+.radio1 
+{
+
+    position: absolute;  
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.label1
+{
+    position: absolute;
+    left: 50px;
+
+}
+
+.label2
+{
+    position: absolute;
+    left: 50px;
+
+}
+.label3
+{
+    position: absolute;
+    left: 50px;
+
+}
+
+
+#transport_a 
+{ 
+    position: absolute;
+    color: black;
+    top: 110px;
+    padding: 5px 0px 0px 0px;
+}
+#transport_b{
+    position: absolute;
+    color: black;
+    top: 110px;
+    padding: 5px 10px 0px 11px;  
+    left: 100px;  
+
+}
+
+#Hent_posisjon
+      {
+          margin: 160px 0px 0px 0px;
+          padding: 5px 5px 5px 5px;
+          font-size: 20px;
+          cursor: pointer;
+          color:  blue;
+          font-family: bold;
+          
+      }
+  
+ #slett_til
+      {
+          position: absolute;
+          padding: 5px 5px 5px 5px;
+          font-size: 20px;
+          cursor: pointer;
+          color:  blue;
+          font-family: bold;
+          left: 359px;
+          top: 16px;
+          
+      }     
+     
+      #slett_fra
+      {
+         
+          position: absolute;
+          padding: 5px 5px 5px 5px;
+          font-size: 20px;
+          cursor: pointer;
+          color:  blue;
+          font-family: bold;
+          left: 359px;
+          top: 60px
+          
+      }
+
+
+
+#transport_c
+{
+    position: absolute;
+    color: black;
+    top: 110px;
+    padding: 5px 10px 0px 11px;  
+    left: 200px; 
+}
+
+#transport_a label,#transport_b,#transport_c 
+{
+    font-family: Roboto;
+    font-size: 20px;
+
+} 
+
+

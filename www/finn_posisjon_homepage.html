@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+       <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+ 
+        <title>Finn din Posisjon</title>
+        
+        <link rel="stylesheet" href="css/finn_posisjon_homepage.css" />
+        <link rel="stylesheet" href="css/index_homepage.css" />
+        <script src="js/finn_posisjon.js"></script>
+        
+    </head>
+    
+    <body>
+       <input id="sok_input" type="text" placeholder="søk etter sted/restaurant">
+       
+       <div>
+         <input id="reset" type="reset" value="Slett Innhold" /> 
+       </div>
+       
+       <div>
+               <input id="Oppdater" type="button" value="Oppdater Min Posisjon" /> 
+       </div>
+       
+       <div>
+               <input id="send_reise" type="button" value="Send Min Lokasjon Til Reise" /> 
+              </div>
+       
+       <div id="map"></div>
+    
+    
+    
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnCBIKiSfSbJ-2NQfF3Syql6wdgveG-L0&libraries=places&callback=posisjon"
+         async defer></script>
+    
+    </body>
+</html>

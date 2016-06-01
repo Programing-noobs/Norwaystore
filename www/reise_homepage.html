@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="css/reise_homepage.css" />
+        <script src="js/reise.js"></script>
+        
+    </head>
+    <body>
+
+        <div id="reise_container" > 
+            <div>
+                <input id="reise_fra" type="text"  placeholder="FRA">
+            </div>
+            <div>       
+                <input id="reise_til" type="text" placeholder="TIL">
+            </div>
+        </div>
+
+        <div id="transport_a">
+            <input type="radio" name="type" class="radio1" id="bil" checked="checked">   
+            <label for="bil" class="label1">Bil</label>
+        </div>
+
+        <div id="transport_b">
+            <input type="radio" name="type" class="radio1" id="walking" >
+            <label for="walking" class="label2" >Gå</label>
+        </div> 
+
+        <div id="transport_c">        
+            <input type="radio" name="type" class="radio1" id="buss"> 
+            <label for="buss" class="label3"> Buss </label>      
+        </div>     
+
+       <div>
+               <input id="Hent_posisjon" type="button" value="Hent Min Posisjon Til Søk" /> 
+       </div>
+        
+       <div>
+               <input id="slett_til" type="button" value="Slett" /> 
+       </div>
+        
+       <div>
+               <input id="slett_fra" type="button" value="Slett" /> 
+       </div>
+       
+        
+        
+        <div id="map"> </div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxojGUgNnF6z7royEMGdrqndrP1iw07uo&libraries=places&callback=reise"
+        async defer></script>
+    </body>
+</html>
